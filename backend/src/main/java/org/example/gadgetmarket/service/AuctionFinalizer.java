@@ -1,10 +1,14 @@
 package org.example.gadgetmarket.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.gadgetmarket.model.AppUser;
 import org.example.gadgetmarket.model.Auction;
+import org.example.gadgetmarket.model.Listing;
 import org.example.gadgetmarket.repository.AuctionRepository;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -14,28 +18,63 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class AuctionFinalizer {
     private final AuctionRepository auctionRepository;
     private final SimpMessagingTemplate messagingTemplate;
+    private final EmailService emailService;
 
-    // MVP: раз в секунду проверяем, какие аукционы пора завершать.
-    @Scheduled(fixedDelay = 1000)
+    /**
+     * Finalize auctions that have ended.
+     *
+     * Important: running too frequently will spam DB/Hibernate logs.
+     * Default is once per minute; can be overridden via app.auctions.finalizer.delay-ms.
+     */
+    @Scheduled(fixedDelayString = "${app.auctions.finalizer.delay-ms:60000}")
+    @Transactional
     public void finalizeEndedAuctions() {
         List<Auction> ended = auctionRepository.findByFinishedFalseAndEndAtLessThanEqual(Instant.now());
         if (ended.isEmpty()) return;
 
-        for (Auction auction : ended) {
-            auction.setFinished(true);
-            auctionRepository.save(auction);
+        ended.forEach(a -> a.setFinished(true));
+        // Persist in one transaction (reduces repeated SELECT/UPDATE chatter).
+        auctionRepository.saveAll(ended);
 
-            // Отправляем два события: на общий событийный канал и на канал конкретного аукциона.
+        for (Auction auction : ended) {
             messagingTemplate.convertAndSend("/topic/auctions/" + auction.getId(), auction);
 
             Map<String, Object> event = new HashMap<>();
             event.put("type", "AUCTION_FINISHED");
             event.put("auctionId", auction.getId());
             messagingTemplate.convertAndSend("/topic/events", (Object) event);
+
+            // Send email notifications
+            AppUser winner = auction.getLeader();
+            Listing listing = auction.getListing();
+            AppUser seller = listing.getSeller();
+
+            if (winner != null) {
+                double finalPrice = auction.getCurrentPrice().doubleValue();
+                emailService.sendAuctionWinnerNotification(
+                        winner.getEmail(),
+                        winner.getDisplayName(),
+                        listing.getTitle(),
+                        finalPrice
+                );
+
+                emailService.sendSellerNotification(
+                        seller.getEmail(),
+                        seller.getDisplayName(),
+                        listing.getTitle(),
+                        finalPrice,
+                        winner.getDisplayName()
+                );
+
+                log.info("Emails sent for auction {}: winner={}, seller={}",
+                        auction.getId(), winner.getEmail(), seller.getEmail());
+            } else {
+                log.info("Auction {} ended without a winner", auction.getId());
+            }
         }
     }
 }
-

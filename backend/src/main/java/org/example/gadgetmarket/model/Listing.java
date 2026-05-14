@@ -18,7 +18,7 @@ public class Listing {
     private Category category;
 
     @Column(nullable = false)
-    private String photoUrl;
+    private String photoPath;
 
     @Column(nullable = false)
     private boolean approved = false;
@@ -58,12 +58,12 @@ public class Listing {
         this.category = category;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     public boolean isApproved() {

@@ -10,4 +10,8 @@ public interface ListingRepository extends JpaRepository<Listing, Long> {
     List<Listing> findByCategory(Category category);
 
     List<Listing> findByTitleContainingIgnoreCase(String query);
+
+    List<Listing> findByApprovedTrue();
+
+    List<Listing> findByApproved(Boolean approved);
 }

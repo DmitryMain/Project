@@ -10,10 +10,12 @@ import org.example.gadgetmarket.model.Listing;
 import org.example.gadgetmarket.repository.AuctionRepository;
 import org.example.gadgetmarket.repository.ListingRepository;
 import org.example.gadgetmarket.service.AuctionService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auctions")
@@ -25,9 +27,15 @@ public class AuctionController {
     private final AuctionService auctionService;
 
     @PostMapping
-    public Auction createAuction(@Valid @RequestBody CreateAuctionRequest request) {
+    public ResponseEntity<?> createAuction(@Valid @RequestBody CreateAuctionRequest request) {
         Listing listing = listingRepository.findById(request.listingId())
                 .orElseThrow(() -> new IllegalArgumentException("Listing not found"));
+
+        if (!listing.isApproved()) {
+            return ResponseEntity.badRequest().body(
+                    Map.of("error", "Лот ещё не прошёл модерацию. Дождитесь подтверждения администратора.")
+            );
+        }
 
         Auction auction = new Auction();
         auction.setListing(listing);
@@ -35,7 +43,7 @@ public class AuctionController {
         auction.setMinStep(request.minStep());
         auction.setEndAt(Instant.now().plusSeconds((long) request.durationMinutes() * 60L));
 
-        return auctionRepository.save(auction);
+        return ResponseEntity.ok(auctionRepository.save(auction));
     }
 
     @GetMapping
@@ -53,4 +61,3 @@ public class AuctionController {
         return auctionService.history(auctionId);
     }
 }
-
