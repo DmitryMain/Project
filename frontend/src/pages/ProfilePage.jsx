@@ -143,12 +143,24 @@ export function ProfilePage() {
                 </div>
               </div>
               <div className={styles.actions}>
-                <RouterButton to="/listings/new" variant="primary">
-                  Добавить лот
-                </RouterButton>
-                <RouterButton to="/auctions/new" variant="secondary">
-                  Создать аукцион
-                </RouterButton>
+                {profile.role === "SELLER" && (
+                  <>
+                    <RouterButton to="/listings/new" variant="primary">
+                      Добавить лот
+                    </RouterButton>
+                    <RouterButton to="/auctions/new" variant="secondary">
+                      Создать аукцион
+                    </RouterButton>
+                  </>
+                )}
+                {profile.role === "BUYER" && (
+                  <p className={styles.copy}>Вы можете просматривать лоты и участвовать в аукционах.</p>
+                )}
+                {profile.role === "ADMIN" && (
+                  <RouterButton to="/moderation" variant="primary">
+                    Модерация лотов
+                  </RouterButton>
+                )}
                 <Button variant="danger" onClick={handleLogout}>
                   Выйти
                 </Button>

@@ -8,7 +8,7 @@ import { Modal } from "./ui/Modal";
 import styles from "./BidForm.module.css";
 
 export function BidForm({ auctionId }) {
-  const { userId } = useUserSession();
+  const { userId, userRole } = useUserSession();
   const { refreshAuctions } = useMarket();
   const [amount, setAmount] = useState("");
   const [autoBidLimit, setAutoBidLimit] = useState("");
@@ -58,6 +58,12 @@ export function BidForm({ auctionId }) {
     } finally {
       setSubmitting(false);
     }
+  }
+
+  if (userRole && userRole !== "BUYER") {
+    return (
+      <p className={styles.restricted}>Ставки могут делать только покупатели.</p>
+    );
   }
 
   return (

@@ -12,7 +12,7 @@ import styles from "./CreateAuctionPage.module.css";
 
 export function CreateAuctionPage() {
   const navigate = useNavigate();
-  const { userId } = useUserSession();
+  const { userId, userRole } = useUserSession();
   const { auctions, refreshAuctions } = useMarket();
   const [submitting, setSubmitting] = useState(false);
   const [createdId, setCreatedId] = useState(null);
@@ -124,9 +124,17 @@ export function CreateAuctionPage() {
       {!userId ? (
         <div className={styles.gate}>
           <p className={styles.gateTitle}>Нужен профиль</p>
-          <p className={styles.gateText}>Создайте профиль, чтобы запускать аукционы.</p>
+          <p className={styles.gateText}>Создайте профиль продавца, чтобы запускать аукционы.</p>
           <RouterButton to="/profile" variant="primary">
             Перейти в профиль
+          </RouterButton>
+        </div>
+      ) : userRole !== "SELLER" ? (
+        <div className={styles.gate}>
+          <p className={styles.gateTitle}>Только для продавцов</p>
+          <p className={styles.gateText}>Создавать аукционы могут только продавцы.</p>
+          <RouterButton to="/profile" variant="primary">
+            Назад к профилю
           </RouterButton>
         </div>
       ) : (

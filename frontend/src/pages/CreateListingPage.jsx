@@ -25,7 +25,7 @@ function saveListingPrice(listingId, price) {
 }
 
 export function CreateListingPage() {
-  const { userId, setLastListingId } = useUserSession();
+  const { userId, userRole, setLastListingId } = useUserSession();
   const [submitting, setSubmitting] = useState(false);
   const [modal, setModal] = useState({ open: false, title: "", message: "" });
   const [price, setPrice] = useState("");
@@ -108,9 +108,17 @@ export function CreateListingPage() {
       {!userId ? (
         <div className={styles.gate}>
           <p className={styles.gateTitle}>Нужен профиль</p>
-          <p className={styles.gateText}>Создайте профиль, чтобы выставлять лоты.</p>
+          <p className={styles.gateText}>Создайте профиль продавца, чтобы выставлять лоты.</p>
           <RouterButton to="/profile" variant="primary">
             Перейти в профиль
+          </RouterButton>
+        </div>
+      ) : userRole !== "SELLER" ? (
+        <div className={styles.gate}>
+          <p className={styles.gateTitle}>Только для продавцов</p>
+          <p className={styles.gateText}>Создавать лоты могут только продавцы.</p>
+          <RouterButton to="/profile" variant="primary">
+            Назад к профилю
           </RouterButton>
         </div>
       ) : (

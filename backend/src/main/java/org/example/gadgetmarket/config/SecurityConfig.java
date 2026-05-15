@@ -7,7 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -33,8 +33,11 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/users/register").permitAll()
                 .requestMatchers("/api/users/login").permitAll()
-                .requestMatchers("/api/catalog/listings", "/api/catalog/listings/**").permitAll()
-                .requestMatchers("/api/auctions/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/catalog/listings", "/api/catalog/listings/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/catalog/listings", "/api/catalog/listings/**").hasRole("SELLER")
+                .requestMatchers(HttpMethod.GET, "/api/auctions", "/api/auctions/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auctions").hasRole("SELLER")
+                .requestMatchers(HttpMethod.POST, "/api/auctions/*/bids").hasRole("BUYER")
                 .requestMatchers("/api/moderation/**").hasRole("ADMIN")
                 .requestMatchers("/uploads/**").permitAll()
                 .requestMatchers("/ws/**").permitAll()
@@ -55,8 +58,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Using BCrypt for production (simplified with NoOp for now)
-        return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
