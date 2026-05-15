@@ -73,24 +73,37 @@ export function ModerationPage() {
         <div className={styles.list}>
           {listings.map((listing) => (
             <div key={listing.id} className={styles.card}>
-              <div className={styles.cardHead}>
-                <span className={styles.badge}>#{listing.id}</span>
-                <span className={styles.badgeCategory}>{listing.category}</span>
-              </div>
-              <h3 className={styles.cardTitle}>{listing.title}</h3>
-              {listing.description && (
-                <p className={styles.cardDesc}>{listing.description}</p>
-              )}
-              {listing.seller && (
-                <p className={styles.seller}>Продавец: {listing.seller.displayName}</p>
-              )}
-              <div className={styles.actions}>
-                <Button variant="primary" onClick={() => handleApprove(listing.id)}>
-                  ✅ Одобрить
-                </Button>
-                <Button variant="danger" onClick={() => handleReject(listing.id)}>
-                  ❌ Отклонить
-                </Button>
+              <div className={styles.cardLayout}>
+                {listing.photoPath && (
+                  <div className={styles.photoWrap}>
+                    <img 
+                      src={`http://localhost:8080${listing.photoPath}`} 
+                      alt="" 
+                      className={styles.photo} 
+                    />
+                  </div>
+                )}
+                <div className={styles.cardContent}>
+                  <div className={styles.cardHead}>
+                    <span className={styles.badge}>#{listing.id}</span>
+                    <span className={styles.badgeCategory}>{listing.category}</span>
+                  </div>
+                  <h3 className={styles.cardTitle}>{listing.title}</h3>
+                  {listing.description && (
+                    <p className={styles.cardDesc}>{listing.description}</p>
+                  )}
+                  {listing.seller && (
+                    <p className={styles.seller}>Продавец: {listing.seller.displayName}</p>
+                  )}
+                  <div className={styles.actions}>
+                    <Button variant="primary" onClick={() => handleApprove(listing.id)}>
+                      ✅ Одобрить
+                    </Button>
+                    <Button variant="danger" onClick={() => handleReject(listing.id)}>
+                      ❌ Отклонить
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

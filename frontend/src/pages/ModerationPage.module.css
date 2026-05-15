@@ -35,6 +35,32 @@
   box-shadow: var(--shadow-sm);
 }
 
+.cardLayout {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.photoWrap {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface-hover);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardContent {
+  flex: 1;
+  min-width: 0;
+}
+
 .cardHead {
   display: flex;
   align-items: center;
