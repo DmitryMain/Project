@@ -1,21 +1,22 @@
 package org.example.gadgetmarket.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-/**
- * Email notification service.
- * 
- * Currently logs all email notifications to the console.
- * 
- * To send real emails:
- * 1. Add spring-boot-starter-mail dependency to pom.xml
- * 2. Configure spring.mail.* properties in application.properties
- * 3. Replace this implementation with a JavaMailSender-based one
- */
 @Service
+@RequiredArgsConstructor
 @Slf4j
 public class EmailService {
+
+    private final JavaMailSender mailSender;
+
+    @Value("${spring.mail.from:no-reply@gadgetmarket.local}")
+    private String from;
 
     public void sendAuctionWinnerNotification(String toEmail, String displayName,
                                                String listingTitle, Double finalPrice) {
@@ -32,7 +33,7 @@ public class EmailService {
                 Команда GadgetMarket
                 """, displayName, listingTitle, finalPrice);
 
-        logEmail(toEmail, subject, body);
+        sendEmail(toEmail, subject, body);
     }
 
     public void sendSellerNotification(String toEmail, String displayName,
@@ -51,20 +52,25 @@ public class EmailService {
                 Команда GadgetMarket
                 """, displayName, listingTitle, winnerName, finalPrice);
 
-        logEmail(toEmail, subject, body);
+        sendEmail(toEmail, subject, body);
     }
 
-    private void logEmail(String to, String subject, String body) {
-        log.info("""
-                                
-                ╔══════════════════════════════════════════════════╗
-                ║                EMAIL NOTIFICATION               ║
-                ╠══════════════════════════════════════════════════╣
-                ║ To:      {}
-                ║ Subject: {}
-                ║──────────────────────────────────────────────────║
-                ║ {}
-                ╚══════════════════════════════════════════════════╝""",
-                to, subject, body);
+    private void sendEmail(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(from);
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+
+        try {
+            mailSender.send(message);
+            log.info("Email sent to {}: subject='{}'", to, subject);
+        } catch (MailException e) {
+            log.warn("Failed to send email to {}: {}. Email content logged below.", to, e.getMessage());
+            log.info("EMAIL -> To: {}, Subject: {}, Body:\n{}", to, subject, text);
+        } catch (Exception e) {
+            log.error("Unexpected error sending email to {}: {}", to, e.getMessage());
+            log.info("EMAIL -> To: {}, Subject: {}, Body:\n{}", to, subject, text);
+        }
     }
 }
