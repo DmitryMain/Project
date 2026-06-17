@@ -2,14 +2,27 @@ package org.example.gadgetmarket.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 import org.example.gadgetmarket.model.Category;
-import org.springframework.web.multipart.MultipartFile;
 
-public record CreateListingRequest(
-        @NotNull Long sellerId,
-        @NotBlank String title,
-        @NotBlank String description,
-        @NotNull Category category,
-        MultipartFile photo
-) {
+import java.util.List;
+
+@Data
+public class CreateListingRequest {
+    @NotBlank
+    private String sellerEmail;
+
+    @NotNull
+    private Long createdBy;
+
+    @NotBlank
+    private String title;
+
+    @NotBlank
+    private String description;
+
+    @NotNull
+    private Category category;
+
+    private List<String> photos;
 }

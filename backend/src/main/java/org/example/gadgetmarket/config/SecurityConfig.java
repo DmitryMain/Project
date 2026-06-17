@@ -44,10 +44,9 @@ public class SecurityConfig {
             .securityContext(context -> context.securityContextRepository(securityContextRepository()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/users/register").permitAll()
-                .requestMatchers("/api/users/login").permitAll()
+                .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/catalog/listings", "/api/catalog/listings/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/catalog/listings", "/api/catalog/listings/**").hasRole("SELLER")
+                .requestMatchers(HttpMethod.POST, "/api/catalog/listings", "/api/catalog/listings/**").hasRole("STAFF")
                 .requestMatchers(HttpMethod.GET, "/api/auctions", "/api/auctions/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auctions").hasRole("SELLER")
                 .requestMatchers(HttpMethod.POST, "/api/auctions/*/bids").hasRole("BUYER")
@@ -71,7 +70,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Support both old {noop} passwords and new BCrypt passwords
         String encodingId = "bcrypt";
         Map<String, PasswordEncoder> encoders = new HashMap<>();
         encoders.put("bcrypt", new BCryptPasswordEncoder());

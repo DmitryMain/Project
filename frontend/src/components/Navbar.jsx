@@ -8,14 +8,14 @@ export function Navbar() {
   const links = [
     { to: "/", label: "Главная", end: true },
     { to: "/auctions", label: "Аукционы" },
-    // Only sellers can create listings and auctions
+    ...(userRole === "STAFF"
+      ? [{ to: "/listings/new", label: "Приём товара" }]
+      : []),
     ...(userRole === "SELLER"
       ? [
-          { to: "/listings/new", label: "Новый лот" },
           { to: "/auctions/new", label: "Новый аукцион" }
         ]
       : []),
-    // Only admin can moderate
     ...(userRole === "ADMIN"
       ? [{ to: "/moderation", label: "Модерация" }]
       : []),

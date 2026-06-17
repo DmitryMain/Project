@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { categoryLabel } from "../utils/categoryLabels";
 import styles from "./ListingCard.module.css";
 
 export function ListingCard({ listing }) {
   const title = listing?.title ?? "Лот";
   const description = listing?.description ?? "";
-  const photoPath = listing?.photoPath;
+  const photoPath = listing?.firstPhotoPath ?? listing?.photoPath;
   const category = listing?.category;
   const sellerName = listing?.seller?.displayName;
   const approved = Boolean(listing?.approved);
@@ -38,4 +38,3 @@ export function ListingCard({ listing }) {
     </Link>
   );
 }
-

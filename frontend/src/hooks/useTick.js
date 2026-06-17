@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-/** Re-renders once per second for countdown UIs. */
 export function useTick(enabled = true) {
   const [, setTick] = useState(0);
   useEffect(() => {

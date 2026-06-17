@@ -41,14 +41,20 @@ public class HelloController {
         if (appUserRepository.findByEmail(request.email()).isPresent()) {
             return ResponseEntity.badRequest().body(Map.of("error", "Email already registered"));
         }
+        
+        // Разрешаем все роли при регистрации
+        UserRole role = request.role();
+        if (role == null) {
+            role = UserRole.BUYER;
+        }
+        
         AppUser user = new AppUser();
         user.setEmail(request.email());
         user.setPasswordHash(passwordEncoder.encode(request.password()));
         user.setDisplayName(request.displayName());
-        user.setRole(request.role() != null ? request.role() : UserRole.BUYER);
+        user.setRole(role);
         user = appUserRepository.save(user);
 
-        // Auto-login after registration
         UsernamePasswordAuthenticationToken authToken = 
             new UsernamePasswordAuthenticationToken(request.email(), request.password());
         Authentication authentication = authenticationManager.authenticate(authToken);

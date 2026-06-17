@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api";
+﻿const API_URL = "http://localhost:8080/api";
 
 function toQuery(params) {
   const sp = new URLSearchParams();
@@ -47,18 +47,8 @@ export const api = {
   getMe: () =>
     requestWithCredentials("/users/me"),
   verifyEmail: (id) => requestWithCredentials(`/users/${id}/verify-email`, { method: "POST" }),
-  createListing: async (formData) => {
-    const res = await fetch(`${API_URL}/catalog/listings`, {
-      method: "POST",
-      credentials: "include",
-      body: formData
-    });
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new Error(`Request failed: ${res.status} ${text}`);
-    }
-    return res.json();
-  },
+  createListing: (payload) =>
+    requestWithCredentials("/catalog/listings", { method: "POST", body: JSON.stringify(payload) }),
   loadListings: ({ q, category } = {}) =>
     request(`/catalog/listings${toQuery({ q, category })}`),
   createAuction: (payload) =>

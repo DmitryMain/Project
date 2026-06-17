@@ -128,7 +128,9 @@ export function ProfilePage() {
                 <div className={styles.infoRow}>
                   <span className={styles.infoLabel}>Роль:</span>
                   <span className={styles.infoValue}>
-                    {profile.role === "ADMIN" ? "Администратор" : profile.role === "SELLER" ? "Продавец" : "Покупатель"}
+                    {profile.role === "ADMIN" ? "Администратор" : 
+                     profile.role === "SELLER" ? "Продавец" : 
+                     profile.role === "STAFF" ? "Сотрудник" : "Покупатель"}
                   </span>
                 </div>
                 <div className={styles.infoRow}>
@@ -159,6 +161,11 @@ export function ProfilePage() {
                 {profile.role === "ADMIN" && (
                   <RouterButton to="/moderation" variant="primary">
                     Модерация лотов
+                  </RouterButton>
+                )}
+                {profile.role === "STAFF" && (
+                  <RouterButton to="/listings/new" variant="primary">
+                    Приём товара
                   </RouterButton>
                 )}
                 <Button variant="danger" onClick={handleLogout}>
@@ -194,9 +201,10 @@ export function ProfilePage() {
                     <Input label="Email" name="email" type="email" required autoComplete="email" />
                     <Input label="Пароль" name="password" type="password" required autoComplete="new-password" />
                     <Input label="Имя" name="displayName" required placeholder="Ваше имя" />
-                    <Select label="Роль" name="role" defaultValue="SELLER">
+                    <Select label="Роль" name="role" defaultValue="BUYER">
                       <option value="BUYER">Покупатель</option>
                       <option value="SELLER">Продавец</option>
+                      <option value="STAFF">Сотрудник магазина</option>
                     </Select>
                     <Button type="submit" variant="primary" disabled={submitting}>
                       {submitting ? "Создание…" : "Создать профиль"}

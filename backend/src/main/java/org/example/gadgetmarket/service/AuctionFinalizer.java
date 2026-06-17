@@ -24,31 +24,27 @@ public class AuctionFinalizer {
     private final SimpMessagingTemplate messagingTemplate;
     private final EmailService emailService;
 
-    /**
-     * Finalize auctions that have ended.
-     *
-     * Important: running too frequently will spam DB/Hibernate logs.
-     * Default is once per minute; can be overridden via app.auctions.finalizer.delay-ms.
-     */
-    @Scheduled(fixedDelayString = "${app.auctions.finalizer.delay-ms:60000}")
+
+    @Scheduled(fixedDelayString = "${app.auctions.finalizer.delay-ms:5000}")
     @Transactional
     public void finalizeEndedAuctions() {
         List<Auction> ended = auctionRepository.findByFinishedFalseAndEndAtLessThanEqual(Instant.now());
         if (ended.isEmpty()) return;
 
+        log.info("Finalizing {} ended auctions", ended.size());
         ended.forEach(a -> a.setFinished(true));
-        // Persist in one transaction (reduces repeated SELECT/UPDATE chatter).
         auctionRepository.saveAll(ended);
 
         for (Auction auction : ended) {
+            log.info("Auction {} finalized at {}", auction.getId(), Instant.now());
             messagingTemplate.convertAndSend("/topic/auctions/" + auction.getId(), auction);
 
             Map<String, Object> event = new HashMap<>();
             event.put("type", "AUCTION_FINISHED");
             event.put("auctionId", auction.getId());
+            event.put("auctionTitle", auction.getListing().getTitle());
             messagingTemplate.convertAndSend("/topic/events", (Object) event);
 
-            // Send email notifications
             AppUser winner = auction.getLeader();
             Listing listing = auction.getListing();
             AppUser seller = listing.getSeller();

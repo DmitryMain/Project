@@ -1,0 +1,416 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.example:gadgetMarket >----------------------
+[INFO] Building gadgetMarket 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.4.4:run (default-cli) > test-compile @ gadgetMarket >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ gadgetMarket ---
+[INFO] Copying 1 resource from backend\src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ gadgetMarket ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ gadgetMarket ---
+[INFO] skip non existing resourceDirectory C:\Users\User\OneDrive\Рабочий стол\gadgetMarket\gadgetMarket\gadgetMarket\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ gadgetMarket ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.4.4:run (default-cli) < test-compile @ gadgetMarket <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.4.4:run (default-cli) @ gadgetMarket ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2026-05-19T10:35:33.289+07:00  INFO 22464 --- [gadgetMarket] [           main] o.e.g.GadgetMarketApplication            : Starting GadgetMarketApplication using Java 17.0.12 with PID 22464 (C:\Users\User\OneDrive\Рабочий стол\gadgetMarket\gadgetMarket\gadgetMarket\target\classes started by User in C:\Users\User\OneDrive\Рабочий стол\gadgetMarket\gadgetMarket\gadgetMarket)
+2026-05-19T10:35:33.295+07:00  INFO 22464 --- [gadgetMarket] [           main] o.e.g.GadgetMarketApplication            : No active profile set, falling back to 1 default profile: "default"
+2026-05-19T10:35:34.840+07:00  INFO 22464 --- [gadgetMarket] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19T10:35:34.961+07:00  INFO 22464 --- [gadgetMarket] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 5 JPA repository interfaces.
+2026-05-19T10:35:36.577+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-05-19T10:35:36.972+07:00  INFO 22464 --- [gadgetMarket] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-19T10:35:36.972+07:00  INFO 22464 --- [gadgetMarket] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2026-05-19T10:35:38.288+07:00  INFO 22464 --- [gadgetMarket] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-19T10:35:38.288+07:00  INFO 22464 --- [gadgetMarket] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4911 ms
+2026-05-19T10:35:38.690+07:00  INFO 22464 --- [gadgetMarket] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-19T10:35:38.764+07:00  INFO 22464 --- [gadgetMarket] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2026-05-19T10:35:38.804+07:00  INFO 22464 --- [gadgetMarket] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-19T10:35:39.172+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19T10:35:39.207+07:00  INFO 22464 --- [gadgetMarket] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-19T10:35:39.443+07:00  INFO 22464 --- [gadgetMarket] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27261190
+2026-05-19T10:35:39.445+07:00  INFO 22464 --- [gadgetMarket] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-19T10:35:39.544+07:00  INFO 22464 --- [gadgetMarket] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-19T10:35:40.623+07:00  INFO 22464 --- [gadgetMarket] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19T10:35:41.083+07:00  INFO 22464 --- [gadgetMarket] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19T10:35:41.889+07:00  INFO 22464 --- [gadgetMarket] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name appUserDetailsService
+2026-05-19T10:35:41.929+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19T10:35:42.529+07:00  WARN 22464 --- [gadgetMarket] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19T10:35:45.233+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-05-19T10:35:45.233+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2c64e2d0]]
+2026-05-19T10:35:45.233+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-05-19T10:35:45.674+07:00  INFO 22464 --- [gadgetMarket] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-05-19T10:35:45.710+07:00  INFO 22464 --- [gadgetMarket] [           main] o.e.g.GadgetMarketApplication            : Started GadgetMarketApplication in 13.475 seconds (process running for 14.149)
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+2026-05-19T10:35:46.581+07:00  INFO 22464 --- [gadgetMarket] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19T10:35:46.582+07:00  INFO 22464 --- [gadgetMarket] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-19T10:35:46.590+07:00  INFO 22464 --- [gadgetMarket] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select l1_0.id,l1_0.approved,l1_0.category,l1_0.created_by_id,l1_0.description,l1_0.photo_path,l1_0.seller_id,l1_0.title from listing l1_0 where l1_0.approved
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+2026-05-19T10:36:45.264+07:00  INFO 22464 --- [gadgetMarket] [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 12], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 1, completed tasks = 12]
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+2026-05-19T10:37:58.175+07:00  WARN 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2026-05-19T10:37:58.179+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "auction" does not exist
+  Позиция: 111
+2026-05-19T10:37:58.459+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.5.jar:6.2.5]
+	at jdk.proxy2/jdk.proxy2.$Proxy128.findByFinishedFalseAndEndAtLessThanEqual(Unknown Source) ~[na:na]
+	at org.example.gadgetmarket.service.AuctionFinalizer.finalizeEndedAuctions(AuctionFinalizer.java:31) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.example.gadgetmarket.service.AuctionFinalizer$$SpringCGLIB$$0.finalizeEndedAuctions(<generated>) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.5.jar:1.14.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.5.jar:6.2.5]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:74) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:355) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:152) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:442) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:380) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:130) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.5.jar:6.2.5]
+	... 32 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "auction" does not exist
+  Позиция: 111
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:137) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	... 60 common frames omitted
+
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+2026-05-19T10:38:03.537+07:00  WARN 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2026-05-19T10:38:03.537+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "auction" does not exist
+  Позиция: 111
+2026-05-19T10:38:03.540+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.5.jar:6.2.5]
+	at jdk.proxy2/jdk.proxy2.$Proxy128.findByFinishedFalseAndEndAtLessThanEqual(Unknown Source) ~[na:na]
+	at org.example.gadgetmarket.service.AuctionFinalizer.finalizeEndedAuctions(AuctionFinalizer.java:31) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.example.gadgetmarket.service.AuctionFinalizer$$SpringCGLIB$$0.finalizeEndedAuctions(<generated>) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.5.jar:1.14.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.5.jar:6.2.5]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:74) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:355) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:152) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:442) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:380) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:130) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.5.jar:6.2.5]
+	... 32 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "auction" does not exist
+  Позиция: 111
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:137) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	... 60 common frames omitted
+
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+2026-05-19T10:38:08.573+07:00  WARN 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2026-05-19T10:38:08.573+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "auction" does not exist
+  Позиция: 111
+2026-05-19T10:38:08.575+07:00 ERROR 22464 --- [gadgetMarket] [MessageBroker-4] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.5.jar:6.2.5]
+	at jdk.proxy2/jdk.proxy2.$Proxy128.findByFinishedFalseAndEndAtLessThanEqual(Unknown Source) ~[na:na]
+	at org.example.gadgetmarket.service.AuctionFinalizer.finalizeEndedAuctions(AuctionFinalizer.java:31) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:727) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.example.gadgetmarket.service.AuctionFinalizer$$SpringCGLIB$$0.finalizeEndedAuctions(<generated>) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor27.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.5.jar:1.14.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.5.jar:6.2.5]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.5.jar:6.2.5]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?] [ERROR: relation "auction" does not exist
+  Позиция: 111] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:74) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:355) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:152) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:442) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:362) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:380) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:130) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140) ~[spring-data-jpa-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.4.4.jar:3.4.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.5.jar:6.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.5.jar:6.2.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.5.jar:6.2.5]
+	... 32 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "auction" does not exist
+  Позиция: 111
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:137) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250) ~[hibernate-core-6.6.11.Final.jar:6.6.11.Final]
+	... 60 common frames omitted
+
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+Hibernate: select a1_0.id,a1_0.current_price,a1_0.end_at,a1_0.finished,a1_0.leader_id,a1_0.listing_id,a1_0.min_step from auction a1_0 where not(a1_0.finished) and a1_0.end_at<=?
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:57 min
+[INFO] Finished at: 2026-05-19T10:39:24+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.4:run (default-cli) on project gadgetMarket: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

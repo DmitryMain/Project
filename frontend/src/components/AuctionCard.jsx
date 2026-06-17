@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useTick } from "../hooks/useTick";
 import { formatRemaining } from "../utils/formatRemaining";
 import { categoryLabel } from "../utils/categoryLabels";
@@ -8,13 +8,14 @@ export function AuctionCard({ auction }) {
   useTick(!auction.finished);
   const title = auction.listing?.title ?? "Лот";
   const category = auction.listing?.category;
+  const photoPath = auction.listing?.firstPhotoPath ?? auction.listing?.photoPath;
   const remaining = auction.finished ? null : formatRemaining(auction.endAt);
 
   return (
     <Link to={`/auctions/${auction.id}`} className={styles.card}>
       <div className={styles.media}>
-        {auction.listing?.photoPath ? (
-          <img src={`http://localhost:8080${auction.listing.photoPath}`} alt="" className={styles.img} loading="lazy" />
+        {photoPath ? (
+          <img src={`http://localhost:8080${photoPath}`} alt="" className={styles.img} loading="lazy" />
         ) : (
           <div className={styles.placeholder} aria-hidden />
         )}

@@ -16,7 +16,6 @@ export function UserSessionProvider({ children }) {
   });
   const [lastListingId, setLastListingId] = useState(null);
 
-  // Save userId when it changes
   useEffect(() => {
     if (userId) {
       localStorage.setItem(SESSION_KEY, String(userId));
@@ -27,7 +26,6 @@ export function UserSessionProvider({ children }) {
     }
   }, [userId]);
 
-  // Save role when it changes
   useEffect(() => {
     if (userRole) {
       localStorage.setItem(ROLE_KEY, userRole);
@@ -36,7 +34,6 @@ export function UserSessionProvider({ children }) {
     }
   }, [userRole]);
 
-  // Verify session and fetch role whenever userId changes
   useEffect(() => {
     if (!userId) {
       setUserRole(null);
@@ -57,7 +54,7 @@ export function UserSessionProvider({ children }) {
     }
     checkSession();
     return () => { alive = false; };
-  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [userId]); 
 
   const value = useMemo(
     () => ({

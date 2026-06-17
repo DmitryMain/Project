@@ -1,7 +1,8 @@
 package org.example.gadgetmarket.model;
 
 public enum UserRole {
-    BUYER,
-    SELLER,
-    ADMIN
+    BUYER,      // Покупатель - участвует в аукционах
+    SELLER,     // Продавец - создает аукционы на одобренные лоты
+    STAFF,      // Сотрудник магазина - принимает товар и создает карточки
+    ADMIN       // Администратор - модерирует карточки товаров
 }

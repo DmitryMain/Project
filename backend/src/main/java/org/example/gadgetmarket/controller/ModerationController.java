@@ -15,12 +15,13 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/moderation")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequiredArgsConstructor
 public class ModerationController {
     private final ListingRepository listingRepository;
     private final ModerationTaskRepository moderationTaskRepository;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/listings/{listingId}/approve")
     public ResponseEntity<?> approveListing(@PathVariable Long listingId) {
         Listing listing = listingRepository.findById(listingId)
@@ -29,7 +30,6 @@ public class ModerationController {
         listing.setApproved(true);
         listingRepository.save(listing);
 
-        // Create a moderation task marking it as approved
         ModerationTask task = new ModerationTask();
         task.setListing(listing);
         task.setForbiddenContent(false);
@@ -41,12 +41,12 @@ public class ModerationController {
         return ResponseEntity.ok(Map.of("message", "Лот одобрен", "listingId", listingId));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/listings/{listingId}/reject")
     public ResponseEntity<?> rejectListing(@PathVariable Long listingId) {
         Listing listing = listingRepository.findById(listingId)
                 .orElseThrow(() -> new IllegalArgumentException("Listing not found"));
 
-        // Optionally mark as not approved (or you can delete)
         listing.setApproved(false);
         listingRepository.save(listing);
 
@@ -61,6 +61,7 @@ public class ModerationController {
         return ResponseEntity.ok(Map.of("message", "Лот отклонён", "listingId", listingId));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/listings/pending")
     public List<Listing> pendingListings() {
         List<Long> moderatedIds = moderationTaskRepository.findAllModeratedListingIds();
@@ -69,6 +70,7 @@ public class ModerationController {
                 .collect(Collectors.toList());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/tasks")
     public List<ModerationTask> tasks() {
         return moderationTaskRepository.findAll();

@@ -19,7 +19,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auctions")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequiredArgsConstructor
 public class AuctionController {
     private final AuctionRepository auctionRepository;
@@ -30,12 +30,6 @@ public class AuctionController {
     public ResponseEntity<?> createAuction(@Valid @RequestBody CreateAuctionRequest request) {
         Listing listing = listingRepository.findById(request.listingId())
                 .orElseThrow(() -> new IllegalArgumentException("Listing not found"));
-
-        if (!listing.isApproved()) {
-            return ResponseEntity.badRequest().body(
-                    Map.of("error", "Лот ещё не прошёл модерацию. Дождитесь подтверждения администратора.")
-            );
-        }
 
         Auction auction = new Auction();
         auction.setListing(listing);

@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+﻿import { useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BidForm } from "../components/BidForm";
 import { Button } from "../components/ui/Button";
@@ -29,6 +29,10 @@ export function AuctionDetailsPage() {
   useTick(Boolean(active));
 
   const remaining = auction && !auction.finished ? formatRemaining(auction.endAt) : null;
+
+  const photoPath = auction?.listing?.firstPhotoPath ?? auction?.listing?.photoPath;
+
+  const hasEndedLocally = auction && !auction.finished && new Date(auction.endAt) <= new Date();
 
   if (auctionsLoading && !auction) {
     return (
@@ -75,8 +79,8 @@ export function AuctionDetailsPage() {
 
       <div className={styles.layout}>
         <div className={styles.visual}>
-          {listing?.photoPath ? (
-            <img src={`http://localhost:8080${listing.photoPath}`} alt="" className={styles.photo} />
+          {photoPath ? (
+            <img src={`http://localhost:8080${photoPath}`} alt="" className={styles.photo} />
           ) : (
             <div className={styles.photoPlaceholder} aria-hidden />
           )}
@@ -99,10 +103,10 @@ export function AuctionDetailsPage() {
             <div>
               <p className={styles.statLabel}>Статус</p>
               <p className={styles.statValue}>
-                {auction.finished ? "Завершён" : <span className={styles.live}>Идёт торг</span>}
+                {auction.finished || hasEndedLocally ? "Завершён" : <span className={styles.live}>Идёт торг</span>}
               </p>
             </div>
-            {!auction.finished ? (
+            {!(auction.finished || hasEndedLocally) ? (
               <div>
                 <p className={styles.statLabel}>До конца</p>
                 <p className={styles.statValueMono}>{remaining}</p>
@@ -110,7 +114,7 @@ export function AuctionDetailsPage() {
             ) : null}
           </div>
 
-          {!auction.finished ? (
+          {!(auction.finished || hasEndedLocally) ? (
             <div className={styles.bidBlock}>
               <h2 className={styles.bidTitle}>Ставка</h2>
               <BidForm auctionId={auction.id} />

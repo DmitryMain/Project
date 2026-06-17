@@ -60,6 +60,14 @@ export function CreateAuctionPage() {
     [listings, userId, activeAuctionListingIds]
   );
 
+  const myPendingListings = useMemo(
+    () =>
+      listings.filter(
+        (l) => Number(l?.seller?.id) === Number(userId) && !l.approved && !activeAuctionListingIds.has(l?.id)
+      ),
+    [listings, userId, activeAuctionListingIds]
+  );
+
   async function handleSubmit(e) {
     e.preventDefault();
     setCreatedId(null);
@@ -150,10 +158,16 @@ export function CreateAuctionPage() {
           <option value="">Выберите лот</option>
           {myAvailableListings.map((l) => (
             <option key={l.id} value={l.id}>
-              #{l.id} {l.title}
+              #{l.id} {l.title} {l.approved ? "✓" : "(на модерации)"}
             </option>
           ))}
         </Select>
+        {(!loadingListings && myPendingListings.length > 0) ? (
+          <p className={styles.note}>
+            Обратите внимание: {myPendingListings.length} лот(а) ещё проходят модерацию. 
+            Вы можете создать аукцион, но ставки будут возможны только после одобрения администратором.
+          </p>
+        ) : null}
         {(!loadingListings && myAvailableListings.length === 0) ? (
           <p className={styles.note}>Нет доступных лотов для запуска аукциона.</p>
         ) : null}

@@ -3,6 +3,8 @@ package org.example.gadgetmarket.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,8 +24,8 @@ public class Listing {
     @Column(nullable = false)
     private Category category;
 
-    @Column(nullable = false)
-    private String photoPath;
+    @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ListingPhoto> photos = new ArrayList<>();
 
     @Column(nullable = false)
     private boolean approved = false;
@@ -31,5 +33,17 @@ public class Listing {
     @ManyToOne(optional = false)
     private AppUser seller;
 
+    @ManyToOne(optional = false)
+    @jakarta.validation.constraints.NotNull
+    private AppUser createdBy;
 
+    public String getFirstPhotoPath() {
+        if (photos != null && !photos.isEmpty()) {
+            return photos.stream()
+                    .min((a, b) -> Integer.compare(a.getSortOrder(), b.getSortOrder()))
+                    .map(ListingPhoto::getPhotoPath)
+                    .orElse(null);
+        }
+        return null;
+    }
 }

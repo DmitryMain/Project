@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Button } from "../components/ui/Button";
 import { Input } from "../components/ui/Input";
 import { Modal } from "../components/ui/Modal";
@@ -8,30 +8,48 @@ import { useUserSession } from "../contexts/UserSessionContext";
 import { api } from "../services/api";
 import styles from "./CreateListingPage.module.css";
 
-const LISTING_PRICE_CACHE_KEY = "listingPriceById";
-
-function saveListingPrice(listingId, price) {
-  if (!listingId) return;
-  const numericPrice = Number(price);
-  if (!Number.isFinite(numericPrice)) return;
-  try {
-    const raw = localStorage.getItem(LISTING_PRICE_CACHE_KEY);
-    const map = raw ? JSON.parse(raw) : {};
-    map[String(listingId)] = numericPrice;
-    localStorage.setItem(LISTING_PRICE_CACHE_KEY, JSON.stringify(map));
-  } catch (err) {
-    console.error(err);
-  }
-}
-
 export function CreateListingPage() {
   const { userId, userRole, setLastListingId } = useUserSession();
   const [submitting, setSubmitting] = useState(false);
   const [modal, setModal] = useState({ open: false, title: "", message: "" });
-  const [price, setPrice] = useState("");
-  const [photoPreview, setPhotoPreview] = useState(null);
+  const [sellerEmail, setSellerEmail] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("SMARTPHONE");
+  const [photos, setPhotos] = useState([]);
 
   const closeModal = () => setModal((m) => ({ ...m, open: false }));
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function handlePhotoChange(e) {
+    const files = Array.from(e.target.files || []);
+    const remaining = 5 - photos.length;
+    const toAdd = files.slice(0, remaining);
+
+    const base64Photos = [];
+    for (const file of toAdd) {
+      try {
+        const base64 = await fileToBase64(file);
+        base64Photos.push(base64);
+      } catch (err) {
+        console.error("Failed to convert file to base64:", err);
+      }
+    }
+
+    setPhotos((prev) => [...prev, ...base64Photos]);
+  }
+
+  function removePhoto(index) {
+    setPhotos((prev) => prev.filter((_, i) => i !== index));
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -43,43 +61,50 @@ export function CreateListingPage() {
       });
       return;
     }
-    const form = new FormData(e.currentTarget);
-    const numericPrice = Number(price);
-    if (!Number.isFinite(numericPrice)) {
+    if (!sellerEmail.trim()) {
       setModal({
         open: true,
         title: "Проверка",
-        message: "Укажите корректную цену."
+        message: "Укажите email продавца."
+      });
+      return;
+    }
+    if (!title.trim()) {
+      setModal({
+        open: true,
+        title: "Проверка",
+        message: "Введите название товара."
+      });
+      return;
+    }
+    if (photos.length === 0) {
+      setModal({
+        open: true,
+        title: "Проверка",
+        message: "Добавьте хотя бы одну фотографию."
       });
       return;
     }
     setSubmitting(true);
-    const formElement = e.currentTarget;
     try {
-      const formData = new FormData();
-      formData.append("sellerId", userId);
-      formData.append("title", form.get("title"));
-      formData.append("description", form.get("description"));
-      formData.append("category", form.get("category"));
-      const photoFile = form.get("photo");
-      if (photoFile && photoFile.size > 0) {
-        formData.append("photo", photoFile);
-      }
-      formData.append("price", numericPrice);
-
-      const created = await api.createListing(formData);
-      setLastListingId(created.id);
-      saveListingPrice(created.id, numericPrice);
+      await api.createListing({
+        sellerEmail: sellerEmail.trim(),
+        createdBy: userId,
+        title: title.trim(),
+        description: description.trim(),
+        category: selectedCategory,
+        photos: photos
+      });
       setModal({
         open: true,
         title: "Лот создан",
-        message: "Лот появился в каталоге."
+        message: "Карточка товара создана и отправлена на модерацию."
       });
-      if (formElement) {
-        formElement.reset();
-      }
-      setPrice("");
-      setPhotoPreview(null);
+      setSellerEmail("");
+      setTitle("");
+      setDescription("");
+      setSelectedCategory("SMARTPHONE");
+      setPhotos([]);
     } catch (err) {
       console.error(err);
       setModal({ open: true, title: "Ошибка", message: String(err?.message || err) });
@@ -88,42 +113,41 @@ export function CreateListingPage() {
     }
   }
 
-  function handlePhotoChange(e) {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (ev) => setPhotoPreview(ev.target.result);
-      reader.readAsDataURL(file);
-    } else {
-      setPhotoPreview(null);
-    }
-  }
-
   return (
     <div className={styles.page}>
       <div className={styles.head}>
-        <h1 className={styles.title}>Новый лот</h1>
+        <h1 className={styles.title}>Приём товара</h1>
+        <p className={styles.subtitle}>Создание карточки товара от продавца</p>
       </div>
 
       {!userId ? (
         <div className={styles.gate}>
           <p className={styles.gateTitle}>Нужен профиль</p>
-          <p className={styles.gateText}>Создайте профиль продавца, чтобы выставлять лоты.</p>
+          <p className={styles.gateText}>Создайте профиль сотрудника, чтобы принимать товары.</p>
           <RouterButton to="/profile" variant="primary">
             Перейти в профиль
           </RouterButton>
         </div>
-      ) : userRole !== "SELLER" ? (
+      ) : userRole !== "STAFF" ? (
         <div className={styles.gate}>
-          <p className={styles.gateTitle}>Только для продавцов</p>
-          <p className={styles.gateText}>Создавать лоты могут только продавцы.</p>
+          <p className={styles.gateTitle}>Только для сотрудников</p>
+          <p className={styles.gateText}>Приём товаров доступен только сотрудникам магазина.</p>
           <RouterButton to="/profile" variant="primary">
             Назад к профилю
           </RouterButton>
         </div>
       ) : (
       <form className={styles.card} onSubmit={handleSubmit}>
-        <Input label="Название" name="title" required placeholder="iPhone 15 Pro" />
+        <Input
+          label="Email продавца" 
+          name="sellerEmail" 
+          type="email"
+          required
+          placeholder="seller@example.com"
+          value={sellerEmail}
+          onChange={(e) => setSellerEmail(e.target.value)}
+        />
+        <Input label="Название товара" name="title" required placeholder="iPhone 15 Pro" value={title} onChange={(e) => setTitle(e.target.value)} />
         <div className={styles.full}>
           <label className={styles.areaLabel} htmlFor="listing-description">
             Описание
@@ -135,41 +159,54 @@ export function CreateListingPage() {
             required
             rows={4}
             placeholder="Состояние, комплектация, история"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <Select label="Категория" name="category" defaultValue="SMARTPHONE">
+        <Select 
+          label="Категория" 
+          name="category" 
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
           <option value="SMARTPHONE">Смартфон</option>
           <option value="LAPTOP">Ноутбук</option>
           <option value="TABLET">Планшет</option>
           <option value="ACCESSORY">Аксессуар</option>
           <option value="OTHER">Другое</option>
         </Select>
-        <Input
-          label="Цена"
-          name="price"
-          type="number"
-          required
-          placeholder="1000"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
         <div className={styles.full}>
-          <label className={styles.areaLabel}>Фото товара</label>
+          <label className={styles.areaLabel}>Фото товара ({photos.length}/5)</label>
           <input
             type="file"
             name="photo"
             accept="image/*"
+            multiple
             required
             onChange={handlePhotoChange}
             className={styles.fileInput}
           />
-          {photoPreview && (
-            <img src={photoPreview} alt="Preview" className={styles.preview} />
+          {photos.length > 0 && (
+            <div className={styles.photoGrid}>
+              {photos.map((base64, index) => (
+                <div key={index} className={styles.photoItem}>
+                  <img src={base64} alt={`Фото ${index + 1}`} className={styles.photoThumb} />
+                  <button
+                    type="button"
+                    className={styles.photoRemove}
+                    onClick={() => removePhoto(index)}
+                    title="Удалить"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
           )}
         </div>
         <div className={styles.actions}>
           <Button type="submit" variant="primary" disabled={submitting}>
-            {submitting ? "Создание…" : "Создать объявление"}
+            {submitting ? "Создание…" : "Создать карточку товара"}
           </Button>
         </div>
       </form>
